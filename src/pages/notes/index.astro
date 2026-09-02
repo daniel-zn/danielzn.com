@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { courses } from '../../data/site';
+---
+
+<BaseLayout
+  title="Notes"
+  description="These are a collection of the notes I’ve created for my university courses. They consist of diagrams and concise definitions of relevant terminology."
+>
+  <div class="wrap">
+    <header class="page-head">
+      <h1>Notes</h1>
+      <p class="lede">
+        These are a collection of the notes I’ve created for my university courses. They consist of diagrams and concise definitions of relevant terminology.
+      </p>
+    </header>
+    <div class="notes">
+      {
+        courses.map((course) => (
+          <div class="note">
+            <a class="note-code" href={course.href}>{course.code}</a>
+            <a class="download" href={course.href} download>
+              Download
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>

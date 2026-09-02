@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Gallery from '../../components/Gallery.astro';
+---
+
+<BaseLayout
+  title="Shoe Rack"
+  description="I like keeping all my shoes in one place, but keeping them in a big pile on the floor of my closet wasn’t ideal so I built this shoe rack."
+  image="/images/img_0425-e1635028100999.jpg"
+>
+  <div class="wrap">
+    <header class="page-head">
+      <h1>Shoe Rack</h1>
+    </header>
+    <article class="project">
+      <Gallery
+        variant="hero-side"
+        images={[
+          { src: '/images/img_0425-e1635028100999.jpg', alt: 'Finished shoe rack' },
+          { src: '/images/img_0407-e1635028093176.jpg', alt: 'Shoe rack in the closet' },
+          { src: '/images/img_0406-e1635028075117.jpg', alt: 'Shoe rack shelves' },
+        ]}
+      />
+      <p>
+        I like keeping all my shoes in one place, but keeping them in a big pile on the floor of my closet wasn’t ideal so I built this shoe rack. It’s designed to fit in a certain space in my closet without interfering with the other closet sections.
+      </p>
+      <p>
+        To allow for some taller boots, the clearance above each shelf is 8 inches, with the width being 17 inches in order to fit two pairs per shelf.
+      </p>
+      <Gallery
+        variant="pair"
+        images={[
+          { src: '/images/3d-render-1-2021-10.jpg', alt: 'Shoe rack 3D render' },
+          { src: '/images/3d-render-2-e1635056126770.jpg', alt: 'Shoe rack 3D render, other angle' },
+        ]}
+      />
+    </article>
+  </div>
+</BaseLayout>

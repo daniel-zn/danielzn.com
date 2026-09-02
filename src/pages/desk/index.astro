@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Gallery from '../../components/Gallery.astro';
+import YouTubeEmbed from '../../components/YouTubeEmbed.astro';
+---
+
+<BaseLayout
+  title="Desk"
+  description="I wanted a desk that hides most of my computer cables, and one that didn’t take up much floor space."
+  image="/images/img_0284.jpg"
+>
+  <div class="wrap">
+    <header class="page-head">
+      <h1>Desk</h1>
+    </header>
+    <article class="project">
+      <Gallery
+        variant="hero-side"
+        images={[
+          { src: '/images/img_0284.jpg', alt: 'Finished desk' },
+          { src: '/images/desk-ii-front-2.jpg', alt: 'Desk front render' },
+          { src: '/images/desk-ii-back.jpg', alt: 'Desk back render' },
+        ]}
+      />
+      <p>
+        I wanted a desk that hides most of my computer cables, and one that didn’t take up much floor space. After searching around, I couldn’t find a retail desk that I liked so I designed this in SolidWorks, and then built it. I made a video covering the construction that you can see below.
+      </p>
+      <YouTubeEmbed id="oKfOzXS5OnY" title="Desk construction" />
+      <p>
+        The desktop is made out of solid Red Oak, while the rest of the structure is made out of dimensional lumber. The entire table is stained a Dark Walnut color, and then finished with a few coats of oil-based Polyurethane.
+      </p>
+      <Gallery
+        variant="triple"
+        images={[
+          { src: '/images/leg-bolt-nut-1.jpg', alt: '3D printed leg bolt and nut' },
+          { src: '/images/leg-1.jpg', alt: 'Desk leg' },
+          { src: '/images/highlighted-leg-connection-e1633828191154.jpg', alt: 'Highlighted leg connection' },
+        ]}
+      />
+      <p>
+        The legs are attached to the tabletop with a set of 3D printed nuts and bolts. This allows me to remove the legs in the event that the desk needs to be moved elsewhere.
+      </p>
+      <p>
+        The design of this desk is geared towards an overbuilt look with a wide open tabletop surface, all the while taking up minimal floor space.
+      </p>
+    </article>
+  </div>
+</BaseLayout>

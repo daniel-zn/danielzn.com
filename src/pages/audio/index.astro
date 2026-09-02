@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { audioCards } from '../../data/site';
+---
+
+<BaseLayout title="Audio" description="Two-way surround speakers designed and built in 2021.">
+  <div class="wrap">
+    <header class="page-head">
+      <h1>Audio</h1>
+    </header>
+    <div class="card-list">
+      {audioCards.map((card) => <ProjectCard {...card} />)}
+    </div>
+  </div>
+</BaseLayout>

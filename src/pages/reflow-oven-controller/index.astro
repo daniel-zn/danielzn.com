@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Gallery from '../../components/Gallery.astro';
+---
+
+<BaseLayout
+  title="Reflow Oven Controller"
+  description="In this project, we designed a controller that managed the temperature of a toaster oven through the reflow process to solder components onto PCBs."
+  image="/images/board-1.jpg"
+>
+  <div class="wrap">
+    <header class="page-head">
+      <h1>Reflow Oven Controller</h1>
+    </header>
+    <article class="project">
+      <Gallery variant="single" images={[{ src: '/images/board-1.jpg', alt: 'Reflow oven controller board' }]} />
+      <p>
+        In this project, we designed a controller that managed the temperature of a toaster oven through the reflow process to solder components onto PCBs.
+      </p>
+      <Gallery
+        variant="pair"
+        images={[
+          { src: '/images/reflow_states-2.png', alt: 'Reflow oven state diagram' },
+          { src: '/images/reflow_plot-1.png', alt: 'Reflow temperature plot' },
+        ]}
+      />
+      <p>
+        These plots represent our goals compared to the outcomes. After the initial ramp up to 150°C, the oven preheats the PCB for a period of time before ramping up to reflow temperatures of 220°C.
+      </p>
+      <Gallery variant="single" images={[{ src: '/images/microcontroller-4.jpg', alt: 'Microcontroller' }]} />
+      <p>The result was a successfully soldered PCB that was used in the Coin Picking Robot project.</p>
+      <p class="align-end">
+        View our GitHub <a href="https://github.com/Abeilles14/Project-1-Reflow-Oven-Controller" target="_blank" rel="noopener noreferrer">page</a>.
+      </p>
+    </article>
+  </div>
+</BaseLayout>

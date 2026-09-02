@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { socials } from '../../data/site';
+
+const icons: Record<string, string> = {
+  LinkedIn:
+    '<path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM.24 8.14h4.5V24H.24V8.14ZM8.67 8.14h4.31v2.16h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V24h-4.5v-7.98c0-1.9-.03-4.35-2.65-4.35-2.65 0-3.06 2.07-3.06 4.2V24h-4.5V8.14Z"/>',
+  GitHub:
+    '<path d="M12 .5A11.5 11.5 0 0 0 0 12.6c0 5.35 3.44 9.9 8.21 11.5.6.12.82-.27.82-.59 0-.29-.01-1.05-.02-2.06-3.34.75-4.04-1.65-4.04-1.65-.55-1.42-1.34-1.8-1.34-1.8-1.1-.77.08-.76.08-.76 1.21.09 1.85 1.28 1.85 1.28 1.08 1.9 2.83 1.35 3.52 1.03.11-.8.42-1.35.77-1.66-2.67-.31-5.47-1.37-5.47-6.1 0-1.35.47-2.45 1.24-3.31-.12-.31-.54-1.57.12-3.27 0 0 1.01-.33 3.3 1.26a11.1 11.1 0 0 1 6 0c2.29-1.59 3.3-1.26 3.3-1.26.66 1.7.24 2.96.12 3.27.77.86 1.24 1.96 1.24 3.31 0 4.74-2.81 5.78-5.49 6.09.43.38.82 1.13.82 2.28 0 1.65-.02 2.98-.02 3.38 0 .32.21.72.83.59A11.51 11.51 0 0 0 24 12.6 11.5 11.5 0 0 0 12 .5Z"/>',
+  YouTube:
+    '<path d="M23.5 6.2a3 3 0 0 0-2.1-2.12C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.48A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.12c1.9.48 9.4.48 9.4.48s7.5 0 9.4-.48a3 3 0 0 0 2.1-2.12A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8ZM9.75 15.57V8.43L15.84 12l-6.09 3.57Z"/>',
+  Thingiverse:
+    '<path d="M4 4h16v4H4V4Zm0 6h7v10H4V10Zm9 0h7v10h-7V10Z"/>',
+};
+---
+
+<BaseLayout
+  title="About"
+  description="Daniel Nadeem is an Electrical Engineer from the University of British Columbia."
+  image="/images/portrait-4-copy.jpeg"
+>
+  <div class="wrap">
+    <div class="about">
+      <img
+        src="/images/portrait-4-copy.jpeg"
+        alt="Daniel Nadeem"
+        width="967"
+        height="1024"
+        fetchpriority="high"
+      />
+      <div>
+        <h1>Electrical Engineer</h1>
+        <p>
+          Daniel Nadeem is an Electrical Engineer from the University of British Columbia. Through experience at Tesla, design teams, and course projects, he has learnt how to apply his academic knowledge into a technical work environment through effective use of the design process, and design implementation. Projects have ranged from designing Python automation scripts and interfaces, to planning and performing high voltage abuse tests, to designing and testing RF link budgets.
+        </p>
+      </div>
+    </div>
+    <ul class="socials">
+      {
+        socials.map((item) => (
+          <li>
+            <a href={item.href} target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <Fragment set:html={icons[item.label]} />
+              </svg>
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</BaseLayout>

@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { projectCards } from '../../data/site';
+---
+
+<BaseLayout title="Projects" description="Engineering projects including robots, a reflow oven controller, and a simple RISC machine.">
+  <div class="wrap">
+    <header class="page-head">
+      <h1>Projects</h1>
+    </header>
+    <div class="card-list">
+      {projectCards.map((card) => <ProjectCard {...card} />)}
+    </div>
+    <aside class="callout">
+      <a href="https://www.thingiverse.com/danielzn/designs" target="_blank" rel="noopener noreferrer">
+        <img src="/images/rounded_corners-1.png" alt="Thingiverse" width="96" height="96" />
+      </a>
+      <p>
+        My <em><a href="https://www.thingiverse.com/danielzn/designs" target="_blank" rel="noopener noreferrer">Thingiverse</a></em> page has many more of my smaller CAD projects.
+      </p>
+    </aside>
+  </div>
+</BaseLayout>

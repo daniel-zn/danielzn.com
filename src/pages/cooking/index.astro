@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { cookingCards } from '../../data/site';
+---
+
+<BaseLayout title="Cooking" description="A few plates: omelet, spicy sausage pasta, mushroom steak, and salmon.">
+  <div class="wrap">
+    <header class="page-head">
+      <h1>Cooking</h1>
+    </header>
+    <div class="card-list">
+      {cookingCards.map((card) => <ProjectCard {...card} />)}
+    </div>
+  </div>
+</BaseLayout>

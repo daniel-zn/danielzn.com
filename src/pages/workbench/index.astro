@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Gallery from '../../components/Gallery.astro';
+---
+
+<BaseLayout
+  title="Workbench"
+  description="To facilitate my woodworking hobby, I designed and built this workbench taking inspiration from the English Nicholson style of workbench."
+  image="/images/img_0158.jpg"
+>
+  <div class="wrap">
+    <header class="page-head">
+      <h1>Workbench</h1>
+    </header>
+    <article class="project">
+      <Gallery
+        variant="hero-side"
+        images={[
+          { src: '/images/img_0158.jpg', alt: 'Finished workbench' },
+          { src: '/images/img_0159.jpg', alt: 'Workbench with table saw' },
+          { src: '/images/render-3.jpg', alt: 'Workbench 3D render' },
+        ]}
+      />
+      <Gallery variant="single" images={[{ src: '/images/render-2.jpg', alt: 'Workbench 3D render, other angle' }]} />
+      <p>
+        To facilitate my woodworking hobby, I designed and built this workbench taking inspiration from the English Nicholson style of workbench. It also includes a section for a jobsite table saw which allows the tabletop to be used as an outfeed.
+      </p>
+      <p>
+        There are still some finishing touches to be made including drilling dog holes and adding a vise or two. For the moment, it is serving me well.
+      </p>
+    </article>
+  </div>
+</BaseLayout>

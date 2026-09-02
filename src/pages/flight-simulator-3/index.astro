@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Gallery from '../../components/Gallery.astro';
+---
+
+<BaseLayout
+  title="Flight Simulator"
+  description="I needed a means of air travel during quarantine, so I built this simulator cockpit structure out of pine."
+  image="/images/flight-simulator-2.jpg"
+>
+  <div class="wrap">
+    <header class="page-head">
+      <h1>Flight Simulator</h1>
+    </header>
+    <article class="project">
+      <Gallery
+        variant="hero-side"
+        images={[
+          { src: '/images/flight-simulator-2.jpg', alt: 'Flight simulator cockpit' },
+          { src: '/images/render-1.jpg', alt: 'Flight simulator 3D render' },
+          { src: '/images/render2-1.jpg', alt: 'Flight simulator 3D render, other angle' },
+        ]}
+      />
+      <p>I needed a means of air travel during quarantine, so I built this simulator cockpit structure out of pine.</p>
+      <p>
+        This simulator uses a Logitech X52 stick and throttle and Logitech Rudder Pedals as well as 34″ 1440p Acer monitor.
+      </p>
+    </article>
+  </div>
+</BaseLayout>

@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Gallery from '../../components/Gallery.astro';
+---
+
+<BaseLayout
+  title="3D Printer Side Table"
+  description="I built a side table out of Red Oak and Pine to place my Ender 3 Pro 3D printer on and to house my PC."
+  image="/images/render-4.jpg"
+>
+  <div class="wrap">
+    <header class="page-head">
+      <h1>3D Printer Side Table</h1>
+    </header>
+    <article class="project">
+      <Gallery
+        variant="triple"
+        images={[
+          { src: '/images/img_0169-2.jpg', alt: '3D printer side table' },
+          { src: '/images/picture.jpg', alt: 'Side table holding a 3D printer' },
+          { src: '/images/render-4.jpg', alt: 'Side table 3D render' },
+        ]}
+      />
+      <p>I built a side table out of Red Oak and Pine to place my Ender 3 Pro 3D printer on and to house my PC.</p>
+      <p>
+        I used a sort of half-lap joint to secure the column supports with the cross supports. Most of the cuts were made using a table saw or circular saw, and it was stained a Dark Walnut color with a few coats of Polyurethane as a finish.
+      </p>
+    </article>
+  </div>
+</BaseLayout>

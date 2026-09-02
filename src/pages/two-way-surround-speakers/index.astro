@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Gallery from '../../components/Gallery.astro';
+import YouTubeEmbed from '../../components/YouTubeEmbed.astro';
+---
+
+<BaseLayout
+  title="Two-Way Surround Speakers"
+  description="I wanted to design and build a pair of speakers to better learn and understand the art of speaker building."
+  image="/images/img_0382.jpg"
+>
+  <div class="wrap">
+    <header class="page-head">
+      <h1>Two-Way Surround Speakers</h1>
+    </header>
+    <article class="project">
+      <Gallery
+        variant="pair"
+        images={[
+          { src: '/images/img_0382.jpg', alt: 'Finished surround speakers' },
+          { src: '/images/3d-render-2-1.jpg', alt: 'Speaker 3D render' },
+        ]}
+      />
+      <Gallery
+        variant="pair"
+        images={[
+          { src: '/images/img_0312-1.jpg', alt: 'Speakers mounted on the wall' },
+          { src: '/images/3d-render-1.jpg', alt: 'Speaker cabinet 3D render' },
+        ]}
+      />
+      <p>
+        I wanted to design and build a pair of speakers to better learn and understand the art of speaker building. These are essentially just a pair of passive bookshelf speakers with a 3D-printed mounting mechanism. I made a video of the build process that you can see below.
+      </p>
+      <YouTubeEmbed id="b1Xc8cGJnBU" title="Two-way surround speaker build" />
+      <p>
+        The manufacturer of the speaker drivers did not provide a lot of specifications which resulted in multiple estimations being made for the cabinet volume. Due to this, I will omit the math involved in the design.
+      </p>
+      <Gallery
+        variant="pair"
+        images={[
+          { src: '/images/img_0263_moment.jpg', alt: 'Speaker cabinet construction' },
+          { src: '/images/img_0280_moment.jpg', alt: 'Speaker cabinet assembly' },
+        ]}
+      />
+      <p>
+        The boxes are made out of 1/2-inch plywood which is a decent material for this purpose as it’s density is generally constant throughout. Five of the box side panels were glued together at miter joints with carpenter’s glue, and the back panel is attached with screws to allow for internal access.
+      </p>
+      <Gallery
+        variant="hero-side"
+        images={[
+          { src: '/images/img_0309_moment-e1628983366586.jpg', alt: 'Crossover board' },
+          { src: '/images/img_0299_moment-1.jpg', alt: 'Speaker wiring' },
+          { src: '/images/img_0300_moment-1.jpg', alt: 'Rear connection port' },
+        ]}
+      />
+      <p>
+        Each speaker consists of a 25W woofer and 15W tweeter, with a crossover frequency of 3800Hz. The crossover boards are wired to a connection port on the back panel which allows for external speaker wires to be connected.
+      </p>
+      <Gallery
+        variant="pair"
+        images={[
+          { src: '/images/3d-render-mount.jpg', alt: '3D printed wall mount render' },
+          { src: '/images/3d-render-mount-2-1.jpg', alt: 'Speaker mount angle render' },
+        ]}
+      />
+      <p>
+        In order to mount the speakers to the wall, I designed and 3D printed the mechanism depicted above that would allow the speakers to be tilted downwards at multiple angles. It’s also designed to only require a single screw in order to minimize damage to the wall.
+      </p>
+    </article>
+  </div>
+</BaseLayout>

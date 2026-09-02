@@ -1,0 +1,23 @@
+---
+interface Image {
+  src: string;
+  alt?: string;
+}
+
+interface Props {
+  images: Image[];
+  variant?: 'single' | 'pair' | 'triple' | 'hero-side';
+}
+
+const { images, variant = 'pair' } = Astro.props;
+---
+
+<div class:list={['gallery', `gallery--${variant}`]}>
+  {
+    images.map((image) => (
+      <figure>
+        <img src={image.src} alt={image.alt ?? ''} loading="lazy" />
+      </figure>
+    ))
+  }
+</div>

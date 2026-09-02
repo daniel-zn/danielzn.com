@@ -1,0 +1,20 @@
+---
+interface Props {
+  href?: string;
+  image: string;
+  title: string;
+  year?: string;
+  alt: string;
+}
+
+const { href, image, title, year, alt } = Astro.props;
+const Tag = href ? 'a' : 'article';
+---
+
+<Tag class:list={['card', { 'card-static': !href }]} href={href}>
+  <img src={image} alt={alt} loading="lazy" />
+  <div>
+    <h2>{title}</h2>
+    {year && <p class="year">{year}</p>}
+  </div>
+</Tag>

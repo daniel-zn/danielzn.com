@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Gallery from '../../components/Gallery.astro';
+---
+
+<BaseLayout
+  title="Quality Control Robot"
+  description="This robot arm was designed to facilitate the quality control of a marshmallow factory."
+  image="/images/robot.jpg"
+>
+  <div class="wrap">
+    <header class="page-head">
+      <h1>Quality Control Robot</h1>
+    </header>
+    <article class="project">
+      <Gallery variant="single" images={[{ src: '/images/robot.jpg', alt: 'Quality control robot arm' }]} />
+      <p>
+        This robot arm was designed to facilitate the quality control of a marshmallow factory. Using 4 motors, the robot can quickly move 3cm wide marshmallows. To demonstrate the robot in operation, we made a <a href="https://youtu.be/QJqsWFrRUXs" target="_blank" rel="noopener noreferrer">video</a> using SolidWorks.
+      </p>
+      <Gallery
+        variant="pair"
+        images={[
+          { src: '/images/simulationx-1.jpg', alt: 'SimulationX model' },
+          { src: '/images/simulinkmodel.png', alt: 'Simulink control model' },
+        ]}
+      />
+      <p>
+        To simulate the robot in action, a primitive model was developed in SimulationX (left image), in tandem with a control model that was developed in Simulink (right image).
+      </p>
+      <Gallery
+        variant="pair"
+        images={[
+          { src: '/images/stress-1-2.jpg', alt: 'SolidWorks stress simulation' },
+          { src: '/images/stress-2-1.jpg', alt: 'SolidWorks stress simulation, other view' },
+        ]}
+      />
+      <p>
+        Using SolidWorks Simulations, the parts were placed under nominal simulated stress to see whether or not they would break. The material used for testing was PLA plastic that would allow for FDM 3D printing.
+      </p>
+      <p class="align-end">
+        View out GitHub <a href="https://github.com/SajjadLab/ARMFLEX9000" target="_blank" rel="noopener noreferrer">page</a>.
+      </p>
+    </article>
+  </div>
+</BaseLayout>
