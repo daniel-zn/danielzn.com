@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Gallery from '../../components/Gallery.astro';
+import ProjectMeta from '../../components/ProjectMeta.astro';
 ---
 
 <BaseLayout
@@ -11,12 +12,14 @@ import Gallery from '../../components/Gallery.astro';
   <div class="wrap">
     <header class="page-head">
       <h1>Reflow Oven Controller</h1>
+      <ProjectMeta year="2020" />
     </header>
     <article class="project">
-      <Gallery variant="single" images={[{ src: '/images/board-1.jpg', alt: 'Reflow oven controller board' }]} />
+      <Gallery variant="single" priority images={[{ src: '/images/board-1.jpg', alt: 'Reflow oven controller board' }]} />
       <p>
         In this project, we designed a controller that managed the temperature of a toaster oven through the reflow process to solder components onto PCBs.
       </p>
+      <h2>Goals and outcomes</h2>
       <Gallery
         variant="pair"
         images={[
@@ -29,7 +32,7 @@ import Gallery from '../../components/Gallery.astro';
       </p>
       <Gallery variant="single" images={[{ src: '/images/microcontroller-4.jpg', alt: 'Microcontroller' }]} />
       <p>The result was a successfully soldered PCB that was used in the Coin Picking Robot project.</p>
-      <p class="align-end">
+      <p class="project-source">
         View our GitHub <a href="https://github.com/Abeilles14/Project-1-Reflow-Oven-Controller" target="_blank" rel="noopener noreferrer">page</a>.
       </p>
     </article>

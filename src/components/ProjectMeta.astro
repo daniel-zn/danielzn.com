@@ -1,0 +1,17 @@
+---
+interface Props {
+  year?: string;
+  details?: string[];
+}
+
+const { year, details = [] } = Astro.props;
+---
+
+{
+  (year || details.length > 0) && (
+    <p class="project-meta">
+      {year ? <span>{year}</span> : null}
+      {details.length > 0 ? <span>{details.join(' · ')}</span> : null}
+    </p>
+  )
+}

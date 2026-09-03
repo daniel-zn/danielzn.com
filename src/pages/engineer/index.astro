@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import {
+  aboutBody,
+  aboutDescription,
+  aboutHeading,
+  engineerEmptyState,
+} from '../../data/site';
+---
+
+<BaseLayout
+  title="Engineer"
+  description={`${aboutDescription} ${engineerEmptyState}`}
+  image="/images/portrait-4-copy.jpeg"
+>
+  <div class="wrap wrap--narrow">
+    <header class="page-head">
+      <p class="page-kicker">{aboutHeading}</p>
+      <h1>Engineer</h1>
+    </header>
+    <div class="prose engineer-intro">
+      <p>{aboutBody}</p>
+    </div>
+    <div class="empty-state">
+      <p>{engineerEmptyState}</p>
+    </div>
+  </div>
+</BaseLayout>

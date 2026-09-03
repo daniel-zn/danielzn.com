@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Gallery from '../../components/Gallery.astro';
+import ProjectMeta from '../../components/ProjectMeta.astro';
 import YouTubeEmbed from '../../components/YouTubeEmbed.astro';
 ---
 
@@ -12,13 +13,15 @@ import YouTubeEmbed from '../../components/YouTubeEmbed.astro';
   <div class="wrap">
     <header class="page-head">
       <h1>Quality Control Robot</h1>
+      <ProjectMeta year="2021" details={['SolidWorks', 'SimulationX', 'Simulink']} />
     </header>
     <article class="project">
-      <Gallery variant="single" images={[{ src: '/images/robot.jpg', alt: 'Quality control robot arm' }]} />
+      <Gallery variant="single" priority images={[{ src: '/images/robot.jpg', alt: 'Quality control robot arm' }]} />
       <p>
         This robot arm was designed to facilitate the quality control of a marshmallow factory. Using 4 motors, the robot can quickly move 3cm wide marshmallows. To demonstrate the robot in operation, we made a video using SolidWorks.
       </p>
       <YouTubeEmbed id="QJqsWFrRUXs" title="Quality Control Robot" />
+      <h2>Simulation</h2>
       <Gallery
         variant="pair"
         images={[
@@ -29,6 +32,7 @@ import YouTubeEmbed from '../../components/YouTubeEmbed.astro';
       <p>
         To simulate the robot in action, a primitive model was developed in SimulationX (left image), in tandem with a control model that was developed in Simulink (right image).
       </p>
+      <h2>SolidWorks Simulations</h2>
       <Gallery
         variant="pair"
         images={[
@@ -39,7 +43,7 @@ import YouTubeEmbed from '../../components/YouTubeEmbed.astro';
       <p>
         Using SolidWorks Simulations, the parts were placed under nominal simulated stress to see whether or not they would break. The material used for testing was PLA plastic that would allow for FDM 3D printing.
       </p>
-      <p class="align-end">
+      <p class="project-source">
         View our GitHub <a href="https://github.com/SajjadLab/ARMFLEX9000" target="_blank" rel="noopener noreferrer">page</a>.
       </p>
     </article>

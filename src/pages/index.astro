@@ -1,14 +1,24 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HomeBand from '../components/HomeBand.astro';
-import { homeSections } from '../data/site';
+import {
+  aboutHeading,
+  courseSlug,
+  courses,
+  heroHeading,
+  heroLede,
+  personalSections,
+  projectSection,
+} from '../data/site';
 ---
 
 <BaseLayout description="I’ve worked on many projects that are available here on this site.">
   <section class="hero">
     <div class="hero-inner">
-      <h1>Hey, I’m Daniel</h1>
-      <p><strong>I’ve worked on many projects that are available here on this site.</strong></p>
+      <p class="hero-kicker">{aboutHeading}</p>
+      <h1>{heroHeading}</h1>
+      <p><strong>{heroLede}</strong></p>
+      <a class="btn" href="/engineer/">Engineer</a>
     </div>
     <div class="hero-media">
       <img
@@ -20,5 +30,29 @@ import { homeSections } from '../data/site';
       />
     </div>
   </section>
-  {homeSections.map((section) => <HomeBand {...section} />)}
+
+  <HomeBand {...projectSection} alt />
+
+  <section class="band">
+    <div class="wrap">
+      <h2 class="band-title">
+        <a href="/notes/">Notes</a>
+      </h2>
+      <ul class="note-chips">
+        {
+          courses.map((course) => (
+            <li>
+              <a href={`/notes/#${courseSlug(course.code)}`}>{course.code}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  {
+    personalSections.map((section, index) => (
+      <HomeBand {...section} secondary alt={index % 2 === 0} />
+    ))
+  }
 </BaseLayout>

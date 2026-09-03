@@ -1,7 +1,19 @@
 export const siteTitle = 'Daniel Nadeem — Electrical Engineer at Tesla';
 export const siteName = 'Daniel Nadeem';
 
+export const aboutHeading = 'Electrical Engineer';
+export const aboutDescription =
+  'Daniel Nadeem is an Electrical Engineer from the University of British Columbia.';
+export const aboutBody =
+  'Daniel Nadeem is an Electrical Engineer from the University of British Columbia. Through experience at Tesla, design teams, and course projects, he has learnt how to apply his academic knowledge into a technical work environment through effective use of the design process, and design implementation. Projects have ranged from designing Python automation scripts and interfaces, to planning and performing high voltage abuse tests, to designing and testing RF link budgets.';
+
+export const heroHeading = 'Hey, I’m Daniel';
+export const heroLede = 'I’ve worked on many projects that are available here on this site.';
+
+export const engineerEmptyState = 'Engineering project details are coming.';
+
 export const nav = [
+  { href: '/engineer/', label: 'Engineer' },
   { href: '/projects/', label: 'Projects' },
   { href: '/woodworking/', label: 'Woodworking' },
   { href: '/audio/', label: 'Audio' },
@@ -144,6 +156,30 @@ export const courses = [
   { code: 'ELEC 481', href: '/notes/elec-481.pdf' },
 ] as const;
 
+export type Course = (typeof courses)[number];
+
+export function courseSlug(code: string): string {
+  return code.toLowerCase().replace(/\s+/g, '-');
+}
+
+export function groupCourses<T extends { code: string }>(items: readonly T[]) {
+  const groups: { prefix: string; items: T[] }[] = [];
+  const index = new Map<string, T[]>();
+
+  for (const item of items) {
+    const prefix = item.code.split(' ')[0] ?? item.code;
+    let group = index.get(prefix);
+    if (!group) {
+      group = [];
+      index.set(prefix, group);
+      groups.push({ prefix, items: group });
+    }
+    group.push(item);
+  }
+
+  return groups;
+}
+
 export const socials = [
   { href: 'https://x.com/danielzn100', label: 'X', handle: '@danielzn100' },
   { href: 'https://www.linkedin.com/in/danielzn/', label: 'LinkedIn' },
@@ -152,8 +188,9 @@ export const socials = [
   { href: 'https://www.thingiverse.com/danielzn/designs', label: 'Thingiverse' },
 ] as const;
 
-export const homeSections: { title: string; href: string; cards: Card[] }[] = [
-  { title: 'Projects', href: '/projects/', cards: projectCards },
+export const projectSection = { title: 'Projects', href: '/projects/', cards: projectCards };
+
+export const personalSections: { title: string; href: string; cards: Card[] }[] = [
   { title: 'Woodworking', href: '/woodworking/', cards: woodworkingCards },
   { title: 'Audio', href: '/audio/', cards: audioCards },
   { title: 'Cooking', href: '/cooking/', cards: cookingCards },

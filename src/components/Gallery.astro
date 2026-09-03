@@ -1,4 +1,6 @@
 ---
+import { imageSize } from '../data/images';
+
 interface Image {
   src: string;
   alt?: string;
@@ -7,17 +9,36 @@ interface Image {
 interface Props {
   images: Image[];
   variant?: 'single' | 'pair' | 'triple' | 'hero-side';
+  priority?: boolean;
 }
 
-const { images, variant = 'pair' } = Astro.props;
+const { images, variant = 'pair', priority = false } = Astro.props;
 ---
 
 <div class:list={['gallery', `gallery--${variant}`]}>
   {
-    images.map((image) => (
-      <figure>
-        <img src={image.src} alt={image.alt ?? ''} loading="lazy" decoding="async" />
-      </figure>
-    ))
+    images.map((image, index) => {
+      const size = imageSize(image.src);
+      const eager = priority && index === 0;
+      const ratio =
+        variant === 'single' && size.width && size.height
+          ? `${size.width} / ${size.height}`
+          : undefined;
+
+      return (
+        <figure>
+          <img
+            src={image.src}
+            alt={image.alt ?? ''}
+            width={size.width}
+            height={size.height}
+            loading={eager ? 'eager' : 'lazy'}
+            decoding="async"
+            fetchpriority={eager ? 'high' : undefined}
+            style={ratio ? `aspect-ratio: ${ratio}` : undefined}
+          />
+        </figure>
+      );
+    })
   }
 </div>

@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { socials } from '../../data/site';
+import { aboutBody, aboutDescription, aboutHeading, socials } from '../../data/site';
+import { imageSize } from '../../data/images';
+
+const portrait = imageSize('/images/portrait-4-copy.jpeg');
 
 const icons: Record<string, string> = {
   X: '<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.727-8.837L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>',
@@ -17,7 +20,7 @@ const icons: Record<string, string> = {
 
 <BaseLayout
   title="About"
-  description="Daniel Nadeem is an Electrical Engineer from the University of British Columbia."
+  description={aboutDescription}
   image="/images/portrait-4-copy.jpeg"
 >
   <div class="wrap">
@@ -25,15 +28,13 @@ const icons: Record<string, string> = {
       <img
         src="/images/portrait-4-copy.jpeg"
         alt="Daniel Nadeem"
-        width="967"
-        height="1024"
+        width={portrait.width}
+        height={portrait.height}
         fetchpriority="high"
       />
       <div>
-        <h1>Electrical Engineer</h1>
-        <p>
-          Daniel Nadeem is an Electrical Engineer from the University of British Columbia. Through experience at Tesla, design teams, and course projects, he has learnt how to apply his academic knowledge into a technical work environment through effective use of the design process, and design implementation. Projects have ranged from designing Python automation scripts and interfaces, to planning and performing high voltage abuse tests, to designing and testing RF link budgets.
-        </p>
+        <h1>{aboutHeading}</h1>
+        <p>{aboutBody}</p>
       </div>
     </div>
     <ul class="socials">

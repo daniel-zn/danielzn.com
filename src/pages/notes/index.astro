@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { courses } from '../../data/site';
+import { courses, courseSlug, groupCourses } from '../../data/site';
+
+const groups = groupCourses(courses);
 ---
 
 <BaseLayout
@@ -14,17 +16,19 @@ import { courses } from '../../data/site';
         These are a collection of the notes I’ve created for my university courses. They consist of diagrams and concise definitions of relevant terminology.
       </p>
     </header>
-    <div class="notes">
-      {
-        courses.map((course) => (
-          <div class="note">
-            <a class="note-code" href={course.href}>{course.code}</a>
-            <a class="download" href={course.href} download>
-              Download
-            </a>
+    {
+      groups.map((group) => (
+        <section class="note-group">
+          <h2>{group.prefix}</h2>
+          <div class="notes">
+            {group.items.map((course) => (
+              <a class="note" id={courseSlug(course.code)} href={course.href}>
+                <span class="note-code">{course.code}</span>
+              </a>
+            ))}
           </div>
-        ))
-      }
-    </div>
+        </section>
+      ))
+    }
   </div>
 </BaseLayout>
