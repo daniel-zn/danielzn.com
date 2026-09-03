@@ -22,13 +22,21 @@ const groups = groupCourses(courses);
           <h2>{group.prefix}</h2>
           <div class="notes">
             {group.items.map((course) => (
-              <a class="note" id={courseSlug(course.code)} href={course.href}>
-                <span class="note-code">{course.code}</span>
-              </a>
+              <article class="note" id={courseSlug(course.code)}>
+                <p class="note-code">{course.code}</p>
+                <h3 class="note-title">{course.title}</h3>
+                <p class="note-brief">{course.brief}</p>
+                <p class="note-download">
+                  <a href={course.href}>Download notes (PDF)</a>
+                </p>
+              </article>
             ))}
           </div>
         </section>
       ))
     }
+    <p class="note-source">
+      Course titles and briefs restated from the UBC Academic Calendar 2026/27, Vancouver campus.
+    </p>
   </div>
 </BaseLayout>
