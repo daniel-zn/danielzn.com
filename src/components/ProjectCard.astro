@@ -5,16 +5,22 @@ interface Props {
   title: string;
   year?: string;
   alt: string;
+  heading?: 'h2' | 'h3';
 }
 
-const { href, image, title, year, alt } = Astro.props;
-const Tag = href ? 'a' : 'article';
+const { href, image, title, year, alt, heading = 'h2' } = Astro.props;
+const Wrap = href ? 'a' : 'div';
+const Heading = heading;
 ---
 
-<Tag class:list={['card', { 'card-static': !href }]} href={href}>
-  <img src={image} alt={alt} loading="lazy" />
-  <div>
-    <h2>{title}</h2>
-    {year && <p class="year">{year}</p>}
-  </div>
-</Tag>
+<article class:list={['card', { 'card-static': !href }]}>
+  <Wrap class="card-inner" href={href}>
+    <div class="card-media">
+      <img src={image} alt={alt} loading="lazy" decoding="async" />
+    </div>
+    <div class="card-copy">
+      <Heading>{title}</Heading>
+      {year && <p class="year">{year}</p>}
+    </div>
+  </Wrap>
+</article>

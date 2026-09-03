@@ -16,7 +16,7 @@ const { images, variant = 'pair' } = Astro.props;
   {
     images.map((image) => (
       <figure>
-        <img src={image.src} alt={image.alt ?? ''} loading="lazy" />
+        <img src={image.src} alt={image.alt ?? ''} loading="lazy" decoding="async" />
       </figure>
     ))
   }

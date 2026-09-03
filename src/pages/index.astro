@@ -1,19 +1,24 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import HomeBand from '../components/HomeBand.astro';
+import { homeSections } from '../data/site';
 ---
 
 <BaseLayout description="I’ve worked on many projects that are available here on this site.">
   <section class="hero">
-    <img
-      src="/images/project-collection.jpg"
-      alt=""
-      width="5120"
-      height="2160"
-      fetchpriority="high"
-    />
     <div class="hero-inner">
       <h1>Hey, I’m Daniel</h1>
       <p><strong>I’ve worked on many projects that are available here on this site.</strong></p>
     </div>
+    <div class="hero-media">
+      <img
+        src="/images/project-collection.jpg"
+        alt=""
+        width="5120"
+        height="2160"
+        fetchpriority="high"
+      />
+    </div>
   </section>
+  {homeSections.map((section) => <HomeBand {...section} />)}
 </BaseLayout>
