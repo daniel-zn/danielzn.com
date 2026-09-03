@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Gallery from '../../components/Gallery.astro';
+import ProjectMeta from '../../components/ProjectMeta.astro';
 ---
 
 <BaseLayout
@@ -11,10 +12,12 @@ import Gallery from '../../components/Gallery.astro';
   <div class="wrap">
     <header class="page-head">
       <h1>3D Printer Side Table</h1>
+      <ProjectMeta year="2020" details={['Red Oak', 'Pine', 'Ender 3 Pro']} />
     </header>
     <article class="project">
       <Gallery
         variant="triple"
+        priority
         images={[
           { src: '/images/img_0169-2.jpg', alt: '3D printer side table' },
           { src: '/images/picture.jpg', alt: 'Side table holding a 3D printer' },

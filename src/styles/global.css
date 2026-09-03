@@ -50,6 +50,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body.nav-open {
+  overflow: hidden;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -161,6 +165,7 @@ a:hover {
 .nav {
   display: flex;
   align-items: center;
+  flex-wrap: nowrap;
   gap: 0.15rem 1.2rem;
 }
 
@@ -171,6 +176,7 @@ a:hover {
   font-weight: 400;
   letter-spacing: -0.01em;
   opacity: 0.8;
+  white-space: nowrap;
 }
 
 .nav a:hover,
@@ -205,6 +211,14 @@ a:hover {
   text-align: center;
 }
 
+.page-kicker {
+  margin: 0 0 0.55rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--muted);
+}
+
 .page-head h1 {
   margin: 0;
   font-family: var(--display);
@@ -212,6 +226,18 @@ a:hover {
   font-weight: 600;
   letter-spacing: -0.035em;
   line-height: 1.05;
+}
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem 1rem;
+  margin: 0.85rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: -0.015em;
 }
 
 .lede {
@@ -257,6 +283,36 @@ a:hover {
   animation: rise 0.8s var(--ease) 0.08s both;
 }
 
+.hero .hero-kicker {
+  margin: 0 auto 0.55rem;
+  max-width: none;
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: #3a3a3c;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.55rem;
+  padding: 0.72rem 1.4rem;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.btn:hover {
+  color: #fff;
+  background: #000;
+}
+
 .hero h1 {
   margin: 0;
   font-family: var(--display);
@@ -286,8 +342,12 @@ a:hover {
   background: var(--bg);
 }
 
-.band:nth-child(even) {
+.band--alt {
   background: var(--bg-alt);
+}
+
+.band--secondary {
+  padding: 3.15rem 0 3.4rem;
 }
 
 .band .wrap {
@@ -313,6 +373,11 @@ a:hover {
   color: var(--muted);
 }
 
+.band--secondary .band-title {
+  margin-bottom: 1.35rem;
+  font-size: clamp(1.55rem, 3.2vw, 2.25rem);
+}
+
 .card-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -327,7 +392,7 @@ a:hover {
   color: inherit;
 }
 
-.band:nth-child(even) .card {
+.band--alt .card {
   background: var(--bg);
 }
 
@@ -555,13 +620,43 @@ a:hover {
   margin-top: 2.25rem;
 }
 
-.align-end {
-  text-align: right;
-  max-width: none !important;
-  font-size: 1rem !important;
-  font-weight: 500 !important;
-  color: var(--muted) !important;
-  margin-top: 2.5rem;
+.project > p.project-source {
+  max-width: var(--prose);
+  margin: 2.5rem auto 0;
+  padding-top: 1.15rem;
+  border-top: 1px solid var(--line);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.engineer-intro {
+  margin-inline: auto;
+}
+
+.engineer-intro p {
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  letter-spacing: -0.014em;
+  color: #3a3a3c;
+}
+
+.empty-state {
+  margin: 2.75rem auto 0;
+  padding: 2.75rem 1.5rem;
+  background: var(--bg-alt);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.empty-state p {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(1.35rem, 2.6vw, 1.9rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
 }
 
 .embed {
@@ -652,14 +747,31 @@ a:hover {
   font-weight: 400;
 }
 
+.note-group {
+  margin-top: 2.35rem;
+}
+
+.note-group:first-of-type {
+  margin-top: 0.5rem;
+}
+
+.note-group h2 {
+  margin: 0 0 0.75rem;
+  font-family: var(--display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
 .notes {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr));
   gap: 0.75rem;
-  margin-top: 0.5rem;
 }
 
-.note {
+a.note {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -667,24 +779,56 @@ a:hover {
   padding: 1rem 1.15rem;
   background: var(--bg-alt);
   border-radius: var(--radius-sm);
+  color: inherit;
+  text-decoration: none;
+  scroll-margin-top: calc(var(--header-h) + 0.75rem);
+}
+
+a.note:hover {
+  color: inherit;
+  background: #ececef;
+}
+
+a.note:target {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .note-code {
   font-weight: 600;
   letter-spacing: -0.015em;
   color: var(--ink);
-  text-decoration: none;
 }
 
-.note-code:hover {
-  color: var(--accent);
+.note-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.download {
-  font-size: 0.85rem;
-  font-weight: 500;
+.note-chips a {
+  display: inline-flex;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: var(--bg-alt);
+  color: var(--ink);
   text-decoration: none;
-  white-space: nowrap;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.note-chips a:hover {
+  color: var(--ink);
+  background: #ececef;
+}
+
+.band--alt .note-chips a {
+  background: var(--bg);
 }
 
 .ingredients {
@@ -765,6 +909,17 @@ a:hover {
   to {
     opacity: 1;
     transform: none;
+  }
+}
+
+@media (max-width: 1100px) and (min-width: 801px) {
+  .nav {
+    gap: 0.1rem 0.65rem;
+  }
+
+  .nav a {
+    font-size: 0.7rem;
+    white-space: nowrap;
   }
 }
 
@@ -849,7 +1004,8 @@ a:hover {
     min-height: 18rem;
   }
 
-  .band {
+  .band,
+  .band--secondary {
     padding: 3.5rem 0 4rem;
   }
 

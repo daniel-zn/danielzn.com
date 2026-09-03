@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Gallery from '../../components/Gallery.astro';
+import ProjectMeta from '../../components/ProjectMeta.astro';
 ---
 
 <BaseLayout
@@ -11,10 +12,12 @@ import Gallery from '../../components/Gallery.astro';
   <div class="wrap">
     <header class="page-head">
       <h1>Shoe Rack</h1>
+      <ProjectMeta year="2021" />
     </header>
     <article class="project">
       <Gallery
         variant="hero-side"
+        priority
         images={[
           { src: '/images/img_0425-e1635028100999.jpg', alt: 'Finished shoe rack' },
           { src: '/images/img_0407-e1635028093176.jpg', alt: 'Shoe rack in the closet' },

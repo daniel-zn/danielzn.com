@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Gallery from '../../components/Gallery.astro';
+import ProjectMeta from '../../components/ProjectMeta.astro';
 ---
 
 <BaseLayout
@@ -11,10 +12,12 @@ import Gallery from '../../components/Gallery.astro';
   <div class="wrap">
     <header class="page-head">
       <h1>Flight Simulator</h1>
+      <ProjectMeta year="2020" details={['Logitech X52', 'Logitech Rudder Pedals', '34″ 1440p Acer']} />
     </header>
     <article class="project">
       <Gallery
         variant="hero-side"
+        priority
         images={[
           { src: '/images/flight-simulator-2.jpg', alt: 'Flight simulator cockpit' },
           { src: '/images/render-1.jpg', alt: 'Flight simulator 3D render' },

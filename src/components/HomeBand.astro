@@ -6,12 +6,14 @@ interface Props {
   title: string;
   href: string;
   cards: Card[];
+  alt?: boolean;
+  secondary?: boolean;
 }
 
-const { title, href, cards } = Astro.props;
+const { title, href, cards, alt = false, secondary = false } = Astro.props;
 ---
 
-<section class="band">
+<section class:list={['band', { 'band--alt': alt, 'band--secondary': secondary }]}>
   <div class="wrap">
     <h2 class="band-title">
       <a href={href}>{title}</a>

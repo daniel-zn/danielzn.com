@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Gallery from '../../components/Gallery.astro';
+import ProjectMeta from '../../components/ProjectMeta.astro';
 import YouTubeEmbed from '../../components/YouTubeEmbed.astro';
 ---
 
@@ -12,10 +13,12 @@ import YouTubeEmbed from '../../components/YouTubeEmbed.astro';
   <div class="wrap">
     <header class="page-head">
       <h1>Two-Way Surround Speakers</h1>
+      <ProjectMeta year="2021" details={['25W woofer', '15W tweeter', '3800Hz']} />
     </header>
     <article class="project">
       <Gallery
         variant="pair"
+        priority
         images={[
           { src: '/images/img_0382.jpg', alt: 'Finished surround speakers' },
           { src: '/images/3d-render-2-1.jpg', alt: 'Speaker 3D render' },
@@ -45,6 +48,7 @@ import YouTubeEmbed from '../../components/YouTubeEmbed.astro';
       <p>
         The boxes are made out of 1/2-inch plywood which is a decent material for this purpose as it’s density is generally constant throughout. Five of the box side panels were glued together at miter joints with carpenter’s glue, and the back panel is attached with screws to allow for internal access.
       </p>
+      <h2>Crossover</h2>
       <Gallery
         variant="hero-side"
         images={[
@@ -56,6 +60,7 @@ import YouTubeEmbed from '../../components/YouTubeEmbed.astro';
       <p>
         Each speaker consists of a 25W woofer and 15W tweeter, with a crossover frequency of 3800Hz. The crossover boards are wired to a connection port on the back panel which allows for external speaker wires to be connected.
       </p>
+      <h2>Mount</h2>
       <Gallery
         variant="pair"
         images={[

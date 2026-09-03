@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Gallery from '../../components/Gallery.astro';
+import ProjectMeta from '../../components/ProjectMeta.astro';
 ---
 
 <BaseLayout
@@ -11,18 +12,19 @@ import Gallery from '../../components/Gallery.astro';
   <div class="wrap">
     <header class="page-head">
       <h1>Simple RISC Machine</h1>
+      <ProjectMeta year="2019" details={['Verilog', 'FPGA']} />
     </header>
     <article class="project">
-      <Gallery variant="single" images={[{ src: '/images/1-1.png', alt: 'Simple RISC machine block diagram' }]} />
+      <Gallery variant="single" priority images={[{ src: '/images/1-1.png', alt: 'Simple RISC machine block diagram' }]} />
       <p>
         This digital design project involved writing multiple Verilog modules to create the machine in the figure on an FPGA. Using the ‘Program Counter’ this machine could run through a series of instructions that were stored in the RAM.
       </p>
-      <h5>Datapath</h5>
+      <h2>Datapath</h2>
       <Gallery variant="single" images={[{ src: '/images/1-2.png', alt: 'Datapath diagram' }]} />
       <p>
         This module allowed for registers to be added or subtracted, as well as multiplying or dividing by 2. The results could be sent to another module or stored back in the registers.
       </p>
-      <h5>State Machine</h5>
+      <h2>State Machine</h2>
       <Gallery variant="single" images={[{ src: '/images/1-3.png', alt: 'State machine diagram' }]} />
       <p>This module allowed for a sequence of events to occur with a single inputted bus.</p>
     </article>
