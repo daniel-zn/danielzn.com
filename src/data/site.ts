@@ -145,8 +145,16 @@ export const courses = [
 ] as const;
 
 export const socials = [
+  { href: 'https://x.com/danielzn100', label: 'X', handle: '@danielzn100' },
   { href: 'https://www.linkedin.com/in/danielzn/', label: 'LinkedIn' },
   { href: 'https://github.com/daniel-zn', label: 'GitHub' },
   { href: 'https://www.youtube.com/channel/UCmhuSmJumwws5QfWfJfPXiw', label: 'YouTube' },
   { href: 'https://www.thingiverse.com/danielzn/designs', label: 'Thingiverse' },
 ] as const;
+
+export const homeSections: { title: string; href: string; cards: Card[] }[] = [
+  { title: 'Projects', href: '/projects/', cards: projectCards },
+  { title: 'Woodworking', href: '/woodworking/', cards: woodworkingCards },
+  { title: 'Audio', href: '/audio/', cards: audioCards },
+  { title: 'Cooking', href: '/cooking/', cards: cookingCards },
+];

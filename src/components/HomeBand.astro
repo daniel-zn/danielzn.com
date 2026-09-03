@@ -1,0 +1,23 @@
+---
+import ProjectCard from './ProjectCard.astro';
+import type { Card } from '../data/site';
+
+interface Props {
+  title: string;
+  href: string;
+  cards: Card[];
+}
+
+const { title, href, cards } = Astro.props;
+---
+
+<section class="band">
+  <div class="wrap">
+    <h2 class="band-title">
+      <a href={href}>{title}</a>
+    </h2>
+    <div class="card-list">
+      {cards.map((card) => <ProjectCard {...card} heading="h3" />)}
+    </div>
+  </div>
+</section>

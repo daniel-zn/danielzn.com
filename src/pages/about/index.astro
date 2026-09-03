@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { socials } from '../../data/site';
 
 const icons: Record<string, string> = {
+  X: '<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.727-8.837L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>',
   LinkedIn:
     '<path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM.24 8.14h4.5V24H.24V8.14ZM8.67 8.14h4.31v2.16h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V24h-4.5v-7.98c0-1.9-.03-4.35-2.65-4.35-2.65 0-3.06 2.07-3.06 4.2V24h-4.5V8.14Z"/>',
   GitHub:
@@ -39,11 +40,17 @@ const icons: Record<string, string> = {
       {
         socials.map((item) => (
           <li>
-            <a href={item.href} target="_blank" rel="noopener noreferrer">
+            <a
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={'handle' in item ? `${item.label} ${item.handle}` : item.label}
+            >
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <Fragment set:html={icons[item.label]} />
               </svg>
               {item.label}
+              {'handle' in item ? <span class="social-handle">{item.handle}</span> : null}
             </a>
           </li>
         ))
