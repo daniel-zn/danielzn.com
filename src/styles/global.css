@@ -767,37 +767,60 @@ a:hover {
 
 .notes {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr));
-  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: 0.9rem;
 }
 
-a.note {
+.note {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  padding: 1rem 1.15rem;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.1rem 1.15rem 1.15rem;
   background: var(--bg-alt);
   border-radius: var(--radius-sm);
-  color: inherit;
-  text-decoration: none;
   scroll-margin-top: calc(var(--header-h) + 0.75rem);
 }
 
-a.note:hover {
-  color: inherit;
-  background: #ececef;
-}
-
-a.note:target {
+.note:target {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
 .note-code {
+  margin: 0;
   font-weight: 600;
   letter-spacing: -0.015em;
   color: var(--ink);
+}
+
+.note-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.note-brief {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.note-download {
+  margin: 0.35rem 0 0;
+}
+
+.note-download a {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.note-source {
+  margin: 2.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
 }
 
 .note-chips {
