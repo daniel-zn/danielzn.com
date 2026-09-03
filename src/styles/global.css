@@ -707,6 +707,28 @@ a:hover {
   color: #3a3a3c;
 }
 
+.resume-cta {
+  margin: 1.35rem 0 0;
+}
+
+.resume-cta a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.7rem 1.15rem;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.resume-cta a:hover {
+  color: #fff;
+  background: #1d1d1f;
+}
+
 .socials {
   display: flex;
   flex-wrap: wrap;

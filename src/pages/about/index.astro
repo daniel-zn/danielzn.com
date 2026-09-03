@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { aboutBody, aboutDescription, aboutHeading, socials } from '../../data/site';
+import { aboutBody, aboutDescription, aboutHeading, resumeHref, socials } from '../../data/site';
 import { imageSize } from '../../data/images';
 
 const portrait = imageSize('/images/portrait-4-copy.jpeg');
@@ -35,6 +35,9 @@ const icons: Record<string, string> = {
       <div>
         <h1>{aboutHeading}</h1>
         <p>{aboutBody}</p>
+        <p class="resume-cta">
+          <a href={resumeHref}>Resume</a>
+        </p>
       </div>
     </div>
     <ul class="socials">

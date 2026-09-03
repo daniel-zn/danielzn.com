@@ -12,6 +12,8 @@ export const heroLede = 'I’ve worked on many projects that are available here 
 
 export const engineerEmptyState = 'Engineering project details are coming.';
 
+export const resumeHref = '/resume.pdf';
+
 export const nav = [
   { href: '/engineer/', label: 'Engineer' },
   { href: '/projects/', label: 'Projects' },
@@ -20,6 +22,7 @@ export const nav = [
   { href: '/cooking/', label: 'Cooking' },
   { href: '/notes/', label: 'Notes' },
   { href: '/about/', label: 'About' },
+  { href: resumeHref, label: 'Resume' },
 ] as const;
 
 export type Card = {
