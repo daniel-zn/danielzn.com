@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { siteTitle } from '../data/site';
+import { heroLede, siteTitle } from '../data/site';
 
 interface Props {
   title?: string;
@@ -12,7 +12,7 @@ interface Props {
 
 const {
   title,
-  description = 'I’ve worked on many projects that are available here on this site.',
+  description = heroLede,
   image = '/images/project-collection.jpg',
 } = Astro.props;
 

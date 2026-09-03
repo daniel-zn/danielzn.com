@@ -8,7 +8,7 @@ export const aboutBody =
   'Daniel Nadeem is an Electrical Engineer from the University of British Columbia. Through experience at Tesla, design teams, and course projects, he has learnt how to apply his academic knowledge into a technical work environment through effective use of the design process, and design implementation. Projects have ranged from designing Python automation scripts and interfaces, to planning and performing high voltage abuse tests, to designing and testing RF link budgets.';
 
 export const heroHeading = 'Hey, I’m Daniel';
-export const heroLede = 'I’ve worked on many projects that are available here on this site.';
+export const heroLede = 'I’m an electrical engineer at Tesla. This site is a short record of projects, notes, and builds.';
 
 export const engineerEmptyState = 'Engineering project details are coming.';
 
